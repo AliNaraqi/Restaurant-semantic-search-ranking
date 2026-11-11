@@ -1,0 +1,216 @@
+{
+  "b001": [
+    "quiet",
+    "romantic",
+    "date night",
+    "vegetarian",
+    "pasta",
+    "wine"
+  ],
+  "b002": [
+    "italian",
+    "vegan",
+    "vegetarian",
+    "date",
+    "mediterranean"
+  ],
+  "b003": [
+    "quiet",
+    "romantic",
+    "candlelight",
+    "italian",
+    "date night",
+    "vegetarian options"
+  ],
+  "b004": [
+    "pizza",
+    "loud",
+    "casual",
+    "cheap",
+    "groups"
+  ],
+  "b005": [
+    "sushi",
+    "omakase",
+    "quiet",
+    "upscale",
+    "date night",
+    "japanese"
+  ],
+  "b006": [
+    "ramen",
+    "noodles",
+    "casual",
+    "vegetarian broth option"
+  ],
+  "b007": [
+    "mexican",
+    "tacos",
+    "vegetarian",
+    "margaritas",
+    "brunch"
+  ],
+  "b008": [
+    "mexican",
+    "quiet",
+    "date",
+    "cocktails"
+  ],
+  "b009": [
+    "indian",
+    "vegetarian",
+    "vegan",
+    "curry",
+    "family"
+  ],
+  "b010": [
+    "indian",
+    "upscale",
+    "quiet",
+    "date night",
+    "vegetarian options"
+  ],
+  "b011": [
+    "dim sum",
+    "dumplings",
+    "chinese",
+    "loud",
+    "groups"
+  ],
+  "b012": [
+    "quiet",
+    "tea",
+    "vegetarian",
+    "chinese",
+    "intimate"
+  ],
+  "b013": [
+    "steak",
+    "upscale",
+    "quiet",
+    "date night",
+    "wine"
+  ],
+  "b014": [
+    "brunch",
+    "breakfast",
+    "eggs",
+    "coffee",
+    "vegetarian"
+  ],
+  "b015": [
+    "thai",
+    "quiet",
+    "vegetarian",
+    "date",
+    "curry"
+  ],
+  "b016": [
+    "pho",
+    "vietnamese",
+    "cheap",
+    "loud",
+    "noodles"
+  ],
+  "b017": [
+    "korean",
+    "bbq",
+    "groups",
+    "loud",
+    "grill"
+  ],
+  "b018": [
+    "french",
+    "romantic",
+    "quiet",
+    "date night",
+    "wine",
+    "vegetarian options"
+  ],
+  "b019": [
+    "mediterranean",
+    "greek",
+    "vegetarian",
+    "hummus",
+    "outdoor"
+  ],
+  "b020": [
+    "burgers",
+    "fast food",
+    "cheap",
+    "loud",
+    "drive-thru"
+  ],
+  "b021": [
+    "italian",
+    "quiet",
+    "romantic",
+    "vegetarian",
+    "date night",
+    "pasta"
+  ],
+  "b022": [
+    "italian",
+    "pasta",
+    "loud",
+    "groups",
+    "party"
+  ],
+  "b023": [
+    "seafood",
+    "fish",
+    "crab",
+    "waterfront"
+  ],
+  "b024": [
+    "vegan",
+    "vegetarian",
+    "healthy",
+    "bowls",
+    "plant-based"
+  ],
+  "b025": [
+    "dessert",
+    "gelato",
+    "quiet",
+    "coffee",
+    "date dessert"
+  ],
+  "b026": [
+    "sushi",
+    "cocktails",
+    "date",
+    "japanese",
+    "vegetarian rolls"
+  ],
+  "b027": [
+    "italian",
+    "family",
+    "loud",
+    "pizza",
+    "groups"
+  ],
+  "b028": [
+    "wine",
+    "quiet",
+    "romantic",
+    "cheese",
+    "date night",
+    "vegetarian"
+  ],
+  "b029": [
+    "tacos",
+    "street food",
+    "cheap",
+    "loud",
+    "casual"
+  ],
+  "b030": [
+    "italian",
+    "quiet",
+    "courtyard",
+    "romantic",
+    "vegetarian",
+    "date night"
+  ]
+}

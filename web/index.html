@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-type="software" data-site-kind="software">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="page-type" content="software" />
+  <meta name="site-kind" content="software" />
+  <meta name="theme-color" content="#1a0e0a" />
+  <title>FoodBot — AI Restaurant Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css?v=canada1" />
+</head>
+<body class="is-walking">
+  <!-- Silent walk intro: entrance → dining → kitchen (no text captions) -->
+  <div class="walk" id="walk" aria-hidden="true">
+    <div
+      class="walk-scene"
+      data-scene="entrance"
+      style="--photo: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80')"
+    ></div>
+    <div
+      class="walk-scene"
+      data-scene="dining"
+      style="--photo: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1920&q=80')"
+    ></div>
+    <div
+      class="walk-scene"
+      data-scene="kitchen"
+      style="--photo: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1920&q=80')"
+    ></div>
+    <div class="walk-vignette"></div>
+    <button type="button" class="walk-skip" id="walk-skip">Skip</button>
+  </div>
+
+  <div class="food-backdrop" aria-hidden="true">
+    <div class="food-backdrop__photo" id="ambient-photo"></div>
+    <div class="food-backdrop__shade"></div>
+  </div>
+
+  <div class="app-shell" id="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="FoodBot home">FoodBot</a>
+      <p class="status" id="status" role="status">Warming up…</p>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <p class="eyebrow">AI restaurant &amp; food discovery</p>
+        <h1 class="brand-hero">FoodBot</h1>
+        <p class="tagline">Ask for a place the way you’d ask a friend — quiet Italian, date night, vegetarian, and more.</p>
+
+        <form class="search-form" id="search-form">
+          <label class="sr-only" for="query">Describe the restaurant you want</label>
+          <textarea
+            id="query"
+            name="query"
+            rows="2"
+            placeholder="Find a quiet Italian restaurant for a date with vegetarian options"
+            required
+          ></textarea>
+
+          <div class="controls">
+            <label>
+              Location
+              <select id="city" name="city">
+                <option value="" selected>Any city</option>
+                <option value="Toronto">Toronto</option>
+                <option value="Vancouver">Vancouver</option>
+                <option value="Montreal">Montreal</option>
+                <option value="Calgary">Calgary</option>
+                <option value="Ottawa">Ottawa</option>
+                <option value="Edmonton">Edmonton</option>
+                <option value="Quebec City">Quebec City</option>
+                <option value="Winnipeg">Winnipeg</option>
+                <option value="Halifax">Halifax</option>
+                <option value="Victoria">Victoria</option>
+              </select>
+            </label>
+            <label>
+              Price
+              <select id="price_max" name="price_max">
+                <option value="" selected>Any price</option>
+                <option value="1">$</option>
+                <option value="2">$$</option>
+                <option value="3">$$$</option>
+                <option value="4">$$$$</option>
+              </select>
+            </label>
+            <label>
+              Vibe
+              <select id="vibe" name="vibe">
+                <option value="any" selected>Any vibe</option>
+                <option value="quiet">Quiet</option>
+                <option value="romantic">Date night</option>
+                <option value="vegetarian">Vegetarian</option>
+              </select>
+            </label>
+            <label>
+              Rank by
+              <select id="sort_by" name="sort_by">
+                <option value="match" selected>Best match</option>
+                <option value="rating">Highest rated</option>
+                <option value="value">Best value</option>
+                <option value="quiet">Quiet first</option>
+              </select>
+            </label>
+            <button type="submit" id="submit-btn">Find food</button>
+          </div>
+        </form>
+
+        <div class="suggestions" id="suggestions">
+          <button type="button" data-q="Find a quiet Italian restaurant for a date with vegetarian options">Quiet Italian date</button>
+          <button type="button" data-q="Best sushi for a romantic anniversary dinner">Romantic sushi</button>
+          <button type="button" data-q="Cheap spicy vegetarian Indian food">Veg Indian</button>
+          <button type="button" data-q="Quiet French bistro for date night with wine">French bistro</button>
+        </div>
+      </section>
+
+      <section class="parsed hidden" id="parsed-panel" aria-live="polite"></section>
+      <section class="results" id="results" aria-live="polite"></section>
+    </main>
+
+    <footer>
+      <span>FoodBot · FAISS · BM25 · LightGBM</span>
+      <a href="/docs">API docs</a>
+    </footer>
+  </div>
+
+  <!-- Chatbot -->
+  <button type="button" class="chat-toggle" id="chat-toggle" aria-expanded="false" aria-controls="chat-panel">
+    Chat
+  </button>
+
+  <aside class="chat-panel hidden" id="chat-panel" aria-hidden="true" aria-label="FoodBot chat">
+    <header class="chat-header">
+      <div>
+        <strong>FoodBot</strong>
+        <span>Restaurant assistant</span>
+      </div>
+      <button type="button" class="chat-close" id="chat-close" aria-label="Close chat">×</button>
+    </header>
+    <div class="chat-log" id="chat-log" role="log" aria-live="polite"></div>
+    <div class="chat-quick">
+      <button type="button" data-chat-prompt="Find a quiet Italian restaurant for a date with vegetarian options">Quiet Italian date</button>
+      <button type="button" data-chat-prompt="Best sushi for a romantic dinner">Romantic sushi</button>
+    </div>
+    <form class="chat-form" id="chat-form">
+      <label class="sr-only" for="chat-input">Message</label>
+      <input id="chat-input" type="text" autocomplete="off" placeholder="Ask FoodBot…" required maxlength="1000" />
+      <button type="submit">Send</button>
+    </form>
+  </aside>
+
+  <script type="module" src="/static/walk.js?v=canada1"></script>
+  <script type="module" src="/static/app.js?v=canada1"></script>
+  <script type="module" src="/static/chat.js?v=canada1"></script>
+</body>
+</html>

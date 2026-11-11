@@ -1,0 +1,38 @@
+# Core
+numpy>=1.24.0,<2
+pandas>=2.0.0,<3
+scikit-learn>=1.3.0
+scipy>=1.11.0
+tqdm>=4.66.0
+pyarrow>=14.0.0,<16
+python-dotenv>=1.0.0
+
+# NLP / Embeddings
+sentence-transformers>=2.2.2
+rank-bm25>=0.2.2
+nltk>=3.8.1
+
+# Vector search — pin a macOS wheel (1.12+ often builds from source and needs swig)
+faiss-cpu==1.10.0
+
+# Learning to Rank
+lightgbm>=4.1.0
+
+# API
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# LLM (query understanding) — OpenAI-compatible; works with local or cloud
+openai>=1.10.0
+
+# Notebooks
+jupyter>=1.0.0
+ipywidgets>=8.1.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# Utils
+orjson>=3.9.0
+httpx>=0.26.0
