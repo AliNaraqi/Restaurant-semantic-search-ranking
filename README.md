@@ -4,9 +4,8 @@ Ask for a restaurant the way you’d ask a friend — and get ranked places back
 
 > “Quiet Italian for a date in Toronto, vegetarian options welcome.”
 
-FoodBot is a local AI restaurant search app. Type a natural sentence (or chat), filter by Canadian city / price / vibe, and it ranks matches with a hybrid search stack plus learning-to-rank. No Docker — just Python and your browser.
+FoodBot is a local AI restaurant search app.
 
-**Open it at:** [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ---
 
