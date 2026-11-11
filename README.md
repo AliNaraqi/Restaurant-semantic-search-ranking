@@ -104,7 +104,7 @@ Until then, a **30-restaurant Canadian sample** (Yelp-like schema) is generated 
 
 ## Optional: smarter query parsing
 
-Copy `.env.example` → `.env` and set `OPENAI_API_KEY`.
+Create a `.env` file in the project root and set `OPENAI_API_KEY` (and optionally `OPENAI_BASE_URL`, `LLM_MODEL`).
 
 No key? FoodBot still works — it falls back to deterministic rules. With a key, chat replies and query understanding can get a bit warmer and more flexible.
 
